@@ -27,7 +27,7 @@ registerRemotes([
 ])
 try {
   const { mfMessage } = await loadRemote('mf-remote')
-  document.querySelector('#app').innerHTML += jsMessage
+  document.querySelector('#app').innerHTML += mfMessage
 } catch (e) {
   document.querySelector('#app').innerHTML += `
 <pre>

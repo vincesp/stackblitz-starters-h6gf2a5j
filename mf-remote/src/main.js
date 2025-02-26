@@ -1,3 +1,3 @@
 import markdownit from 'markdown-it'
 const md = markdownit()
-export const jsMessage = md.render('## Hello JS Remote!')
+export const mfMessage = md.render('## Hello MF Remote!')
