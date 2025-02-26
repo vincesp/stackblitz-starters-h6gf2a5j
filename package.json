@@ -1,0 +1,18 @@
+{
+  "name": "node-starter",
+  "private": true,
+  "workspaces": [
+    "mf-remote",
+    "js-remote",
+    "host"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "prettier": "^3.2.5"
+  },
+  "scripts": {
+    "build": "npm run build -ws",
+    "dev": "concurrently \"npm run preview -w js-remote\" \"npm run preview -w mf-remote\" \"npm run dev -w host\"",
+    "format": "prettier --write \"**/src/**/*.{js,jsx,ts,tsx}\""
+  }
+}

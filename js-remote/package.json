@@ -1,0 +1,18 @@
+{
+  "name": "js-remote",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@module-federation/vite": "^1.2.2",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0"
+  }
+}
