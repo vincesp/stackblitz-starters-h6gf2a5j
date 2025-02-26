@@ -1,5 +1,7 @@
 # @module-federation/enhanced/runtime manifest bug
 
+Reproduction for https://github.com/module-federation/core/issues/3550
+
 Install dependencies
 
 ```
