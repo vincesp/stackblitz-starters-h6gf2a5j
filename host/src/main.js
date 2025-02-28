@@ -36,3 +36,21 @@ ${e}
 `
   console.error(e)
 }
+
+registerRemotes([
+  {
+    name: 'mf-remote-rsbuild',
+    entry: 'http://localhost:8767/mf-manifest.json',
+  },
+])
+try {
+  const { mfRsMessage } = await loadRemote('mf-remote-rsbuild')
+  document.querySelector('#app').innerHTML += mfRsMessage
+} catch (e) {
+  document.querySelector('#app').innerHTML += `
+<pre>
+${e}
+</pre>
+`
+  console.error(e)
+}
