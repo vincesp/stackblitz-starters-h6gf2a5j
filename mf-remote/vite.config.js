@@ -3,6 +3,7 @@ import { federation } from '@module-federation/vite'
 import { resolve } from 'node:path'
 
 export default defineConfig({
+  base: 'http://localhost:8766',
   build: {
     target: 'esnext',
     sourcemap: false,
@@ -22,13 +23,13 @@ export default defineConfig({
       name: 'js_remote',
       manifest: true,
       exposes: {
-        '.': './src/main.js'
+        '.': './src/main.js',
       },
-      shared: ['markdown-it']
-    })
+      shared: ['markdown-it'],
+    }),
   ],
   preview: {
     port: 8766,
     strictPort: true,
-  }
+  },
 })
