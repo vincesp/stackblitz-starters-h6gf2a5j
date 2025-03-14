@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "@module-federation/rsbuild-plugin": "^0.9.1",
-    "@rsbuild/core": "^1.2.8"
+    "@rsbuild/core": "^1.2.8",
+    "@rslib/core": "^0.5.2"
   },
   "dependencies": {
     "markdown-it": "^14.1.0"
