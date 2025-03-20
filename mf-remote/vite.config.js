@@ -8,7 +8,7 @@ export default defineConfig({
     sourcemap: false,
     lib: {
       entry: 'src/main.js',
-      name: 'jsRemote',
+      name: 'mfRemote',
       formats: ['es'],
     },
     rollupOptions: {
@@ -19,7 +19,7 @@ export default defineConfig({
   },
   plugins: [
     federation({
-      name: 'js_remote',
+      name: 'mf_remote',
       manifest: true,
       exposes: {
         '.': './src/main.js'
