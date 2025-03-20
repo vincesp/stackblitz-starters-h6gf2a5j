@@ -2,6 +2,9 @@ import { defineConfig } from '@rslib/core'
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin'
 
 export default defineConfig({
+  dev: {
+    assetPrefix: 'auto',
+  },
   output: {
     assetPrefix: 'auto',
   },
