@@ -5,52 +5,60 @@ import {
   loadRemote,
 } from '@module-federation/enhanced/runtime'
 
-const md = markdownit()
-const result = md.render('# Hello Host!')
-document.querySelector('#app').innerHTML = result
-
-registerRemotes([
+const remotes = [
   {
     name: 'js-remote',
     entry: 'http://localhost:8765/remoteEntry.js',
     type: 'module',
   },
-])
-const { jsMessage } = await loadRemote('js-remote')
-document.querySelector('#app').innerHTML += jsMessage
-
-registerRemotes([
   {
     name: 'mf-remote',
     entry: 'http://localhost:8766/mf-manifest.json',
   },
-])
-try {
-  const { mfMessage } = await loadRemote('mf-remote')
-  document.querySelector('#app').innerHTML += mfMessage
-} catch (e) {
-  document.querySelector('#app').innerHTML += `
-<pre>
-${e}
-</pre>
-`
-  console.error(e)
-}
-
-registerRemotes([
+  {
+    name: 'js-remote-rsbuild',
+    entry: 'http://localhost:8767/remoteEntry.js',
+  },
   {
     name: 'mf-remote-rsbuild',
-    entry: 'http://localhost:8767/mf-manifest.json',
+    entry: 'http://localhost:8768/mf-manifest.json',
   },
-])
-try {
-  const { mfRsMessage } = await loadRemote('mf-remote-rsbuild')
-  document.querySelector('#app').innerHTML += mfRsMessage
-} catch (e) {
-  document.querySelector('#app').innerHTML += `
+]
+
+const exports = {
+  'js-remote': 'jsMessage',
+  'mf-remote': 'mfMessage',
+  'js-remote-rsbuild': 'jsRsMessage',
+  'mf-remote-rsbuild': 'mfRsMessage',
+}
+
+async function startRemote(remote) {
+  try {
+    registerRemotes([remote])
+    const { [exports[remote.name]]: message } = await loadRemote(remote.name)
+    document.querySelector('#result').innerHTML += message
+  } catch (e) {
+    console.error(e)
+    document.querySelector('#result').innerHTML += `
+<h2 class="error">${remote.name}</h2>
 <pre>
 ${e}
 </pre>
 `
-  console.error(e)
+  } finally {
+    console.log('------------------', remote.name)
+  }
 }
+
+const md = markdownit()
+const result = md.render('# Hello Host!')
+document.querySelector('#app').innerHTML = result
+
+for (const remote of remotes) {
+  const button = document.createElement('button')
+  button.innerText = `Load ${remote.name}`
+  button.onclick = () => startRemote(remote)
+  document.querySelector('#app').appendChild(button)
+}
+
+console.log('------------------')

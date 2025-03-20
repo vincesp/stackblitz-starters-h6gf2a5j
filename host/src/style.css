@@ -1,3 +1,11 @@
 :root {
   font-family: Helvetica, sans-serif;
 }
+
+button + button {
+  margin-left: 1rem;
+}
+
+.error {
+  color: red;
+}

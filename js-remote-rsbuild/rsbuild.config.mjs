@@ -14,13 +14,14 @@ export default defineConfig({
     },
   ],
   server: {
-    port: 8768,
+    port: 8767,
     cors: true,
   },
   plugins: [
     pluginModuleFederation({
       name: 'js_remote_rsbuild',
-      manifest: true,
+      manifest: false,
+      filename: 'remoteEntry.js',
       exposes: {
         '.': './src/index.js',
       },

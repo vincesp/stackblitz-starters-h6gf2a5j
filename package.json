@@ -5,6 +5,7 @@
     "mf-remote",
     "mf-remote-rsbuild",
     "js-remote",
+    "js-remote-rsbuild",
     "host"
   ],
   "devDependencies": {
@@ -13,7 +14,7 @@
   },
   "scripts": {
     "build": "npm run build -ws",
-    "dev": "concurrently \"npm run preview -w js-remote\" \"npm run preview -w mf-remote\" \"npm run preview -w mf-remote-rsbuild\" \"npm run dev -w host\"",
+    "dev": "concurrently \"npm run preview -w js-remote\" \"npm run preview -w mf-remote\" \"npm run preview -w js-remote-rsbuild\" \"npm run preview -w mf-remote-rsbuild\" \"npm run dev -w host\"",
     "format": "prettier --write \"**/src/**/*.{js,jsx,ts,tsx}\""
   }
 }
