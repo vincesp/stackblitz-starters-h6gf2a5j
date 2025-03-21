@@ -22,7 +22,7 @@ export default defineConfig({
   },
   plugins: [
     pluginModuleFederation({
-      name: 'js_remote_rsbuild',
+      name: 'mf_remote_rsbuild',
       manifest: true,
       exposes: {
         '.': './src/index.js',

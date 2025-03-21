@@ -7,29 +7,29 @@ import {
 
 const remotes = [
   {
-    name: 'js-remote',
+    name: 'js_remote',
     entry: 'http://localhost:8765/remoteEntry.js',
     type: 'module',
   },
   {
-    name: 'mf-remote',
+    name: 'mf_remote',
     entry: 'http://localhost:8766/mf-manifest.json',
   },
   {
-    name: 'js-remote-rsbuild',
+    name: 'js_remote_rsbuild',
     entry: 'http://localhost:8767/remoteEntry.js',
   },
   {
-    name: 'mf-remote-rsbuild',
+    name: 'mf_remote_rsbuild',
     entry: 'http://localhost:8768/mf-manifest.json',
   },
 ]
 
 const exports = {
-  'js-remote': 'jsMessage',
-  'mf-remote': 'mfMessage',
-  'js-remote-rsbuild': 'jsRsMessage',
-  'mf-remote-rsbuild': 'mfRsMessage',
+  'js_remote': 'jsMessage',
+  'mf_remote': 'mfMessage',
+  'js_remote_rsbuild': 'jsRsMessage',
+  'mf_remote_rsbuild': 'mfRsMessage',
 }
 
 async function startRemote(remote) {
